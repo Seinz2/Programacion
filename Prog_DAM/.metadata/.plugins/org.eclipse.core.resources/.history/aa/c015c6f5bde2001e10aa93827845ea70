@@ -1,0 +1,45 @@
+package tareaEntregaGimnasio;
+
+public class Gimnasio {
+
+	private Persona v[];
+
+	public Gimnasio() {
+		v = null;
+	}
+
+	public void insertarPersona(Persona p) {
+		if (v == null) {
+			v = new Persona[1];
+			v[0] = p;
+		} else {
+			int newTam = v.length + 1;
+			Persona vNuevo[] = new Persona[newTam];
+			for (int i = 0; i < v.length; i++) {
+				vNuevo[i] = v[i];
+
+			}
+			vNuevo[v.length] = p;
+			v = vNuevo;
+
+		}
+	}
+
+	public void listarGimnasio() {
+		for (int i = 0; i < v.length; i++) {
+			v[i].identificate();
+		}
+
+	}
+
+	public Persona buscarPersona(String nombre) {
+		for (int i = 0; i < v.length; i++) {
+			Persona p = v[i];
+			if (p.getNombre().compareTo(nombre) == 0) {
+				return p;
+			}
+		}
+		return null;
+	}
+
+}
